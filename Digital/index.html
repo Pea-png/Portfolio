@@ -340,7 +340,7 @@
   
 
 
-    <!-- JavaScript -->
+      <!-- JavaScript -->
     <script>// ------------ GO TO TOP BUTTON ------------- //
         document.addEventListener("DOMContentLoaded", () => {
           const upButton = document.getElementById("goTop");
@@ -394,6 +394,16 @@
         icon.classList.toggle('fa-chevron-up');
     }
 </script>
+ 
+    <script>
+      document.getElementById('resume-link').addEventListener('click', function(event) {
+          event.preventDefault(); // Prevent the default link behavior
+          window.location.href = "https://drive.google.com/file/d/1KJxkuMbixDeVotay7XpOvKElnrz8_G48/view?usp=drive_link"; // Open resume in a new tab
+          setTimeout(() => {
+              document.getElementById('images').scrollIntoView({ behavior: 'smooth' });
+          }, 2000); // Adjust the time for the resume to load
+      });
+  </script>
 
 
 </div>
