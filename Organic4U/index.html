@@ -8,10 +8,11 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.0/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+   
+
             /* Custom Font - Poppins */
 .font-poppins {
     font-family: "Poppins", sans-serif;
@@ -31,7 +32,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(246, 246, 246);
+  background-color: #BFDBFE;
   height: 2.5rem;
   width: 2.5rem;
   position: relative;
@@ -43,7 +44,7 @@
   position: absolute;
   height: 2.2rem;
   width: 2.2rem;
-  fill: rgb(4, 91, 16);
+  fill: #052E16;
   transition: 0.2s ease-in-out;
 }
 
@@ -67,16 +68,39 @@
     right: 1rem;
   }
 }
+  /* Custom styles */
+  @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
 
+        .typing-animation {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 8s steps(40, end);
+        }               
+          .custom-bg {
+    background-color: #E2E0C9;
+  }
+    .custom-card {
+    background-color: #EEEFE0;
+  }
+  
+ 
   </style>
 </head>
 
-<body class="bg-black text-gray-200 font-poppins">
-   <!-- Navigation Bar -->
-<nav class="fixed w-full bg-black shadow-sm px-4 lg:px-20  text-black z-50 top-0 left-0">
+<body class="custom-bg text-gray-200 font-poppins">
+<!-- Navigation Bar -->
+<nav class="fixed w-full bg-lime-950 shadow-sm px-4 lg:px-20  text-black z-50 top-0 left-0">
   <div class="container mx-auto flex justify-between items-center">
       <svg width="200" height="60" xmlns="http://www.w3.org/2000/svg">
-          <text x="10" y="40" class="font-poppins text-xl text-green-300 font-regular" fill="#86efac">Pea</text>
+          <text x="10" y="40" class="font-poppins text-xl text-lime-950 font-regular" fill="#EEEFE0">Pea</text>
       </svg>
       <div></div>
 
@@ -90,15 +114,15 @@
       </div>
 
       <ul class="hidden md:flex space-x-4 text-gray-300">
-    <li><a href="https://pea-png.github.io/Portfolio/index.html" class="hover:text-gray-100">Home</a></li>
-        <li><a href="https://docs.google.com/document/d/1JvPrF6ulYXAGI7Rc3NfhxZcMM-i7yqam1CszBXuNmXQ/edit?usp=sharing" class="hover:text-gray-100" id="resume-link">Resume</a></li>
-        <li><a href="https://pea-png.github.io/Portfolio/index.html#projects" class="hover:text-gray-100">Projects</a></li>
+    <li><a href="https://pea-png.github.io/Portfolio/index.html" class="hover:text-gray-400">Home</a></li>
+        <li><a href="https://docs.google.com/document/d/1JvPrF6ulYXAGI7Rc3NfhxZcMM-i7yqam1CszBXuNmXQ/edit?usp=sharing" class="hover:text-gray-400" id="resume-link">Resume</a></li>
+        <li><a href="https://pea-png.github.io/Portfolio/index.html#projects" class="hover:text-gray-400">Projects</a></li>
     </ul>
   </div>
 </nav>
 
 <!-- Mobile Navigation Menu (hidden by default) -->
-<div id="mobile-menu" class="md:hidden fixed inset-0 bg-gray-950 z-50 hidden">
+<div id="mobile-menu" class="md:hidden fixed inset-0 custom-bg z-50 hidden">
   <div class="flex justify-end p-4">
       <button id="close-menu" class="focus:outline-none">
           <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -106,65 +130,76 @@
           </svg>
       </button>
   </div>
-  <ul class="text-gray-200 text-center space-y-4 mt-4">
+  <ul class="text-lime-950 text-center space-y-4 mt-4">
       <li><a href="https://pea-png.github.io/Portfolio/index.html" class="block py-2 hover:bg-gray-300">Home</a></li> 
       <li><a href="https://docs.google.com/document/d/1JvPrF6ulYXAGI7Rc3NfhxZcMM-i7yqam1CszBXuNmXQ/edit?usp=sharing" class="block py-2 hover:bg-gray-300">Resume</a></li>
       <li><a href="https://pea-png.github.io/Portfolio/index.html#projects" class="block py-2 hover:bg-gray-300">Projects</a></li>
   </ul>
 </div>
- <!-- Go Top Button -->
- <div id="goTop" class="go-top" title="Go to top">
-    <div class="arrow-up-background" onclick="goTopFunction()">
-      <svg
-        class="arrow-up"
-        xmlns="http://www.w3.org/2000/svg"
-        height="24px"
-        viewBox="0 -960 960 960"
-        width="24px"
-        fill="#6ea6fa"
-      >
-        <path
-          d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"
-        />
-      </svg>
-    </div>
+
+  <!-- Go Top Button -->
+<div id="goTop" class="go-top" title="Go to top">
+  <div class="arrow-up-background" onclick="goTopFunction()">
+    <svg
+      class="arrow-up"
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 -960 960 960"
+      width="24px"
+      fill="#6ea6fa"
+    >
+      <path
+        d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"
+      />
+    </svg>
   </div>
+</div>
+
+
+  
+</div>
     
 
 <!-- Hero Section -->
-<section id="hero" class="lg:px-20 px-8 flex flex-col md:flex-row items-left justify-left py-20 bg-black">
+<section id="hero" class="lg:px-20 px-8 flex flex-col md:flex-row items-left justify-left py-20 custom-bg">
   <div class="md:w-1/2 text-left md:text-left pt-10">
 
 <!-- Headline -->
-      <h1 class="text-5xl md:text-6xl font-medium text-gray-300 mb-12  md:mb-20 z-10 relative leading-10">Organic4U:A Responsive Landing-Page</h1>
+      <h1 class="text-5xl md:text-6xl font-medium text-lime-950 mb-12  md:mb-20 z-10 relative leading-10">Organic4U:A Responsive Landing-Page</h1>
 
 
   </div>
   <div class=" px-20 mt-60 ">
 <!-- Subtitle -->
-<p class="text-gray-400  p-2 rounded-lg">
-<span class="font-medium text-gray-300">Role:</span> Frontend developer and UX/UI designer
+<p class="text-lime-900  p-2 rounded-lg">
+<span class="font-medium text-lime-950">Company:</span> Quicksite guru
 </p>
-<p class="text-gray-400  p-2 rounded-lg">
-<span class="font-medium text-gray-300">Tool:</span> Figma,Tailwind CSS and JavaScript 
+<p class="text-lime-900  p-2 rounded-lg">
+<span class="font-medium text-lime-950">Role:</span> UX/UI designer
 </p>
-<p class="text-gray-400  p-2 rounded-lg">
-<span class="font-medium text-gray-300">Length:</span> 1 month
+<p class="text-lime-900  p-2 rounded-lg">
+<span class="font-medium text-lime-950">Tool:</span> Figma
 </p>
-<p class="text-gray-400  p-2 rounded-lg">
-<span class="font-medium text-gray-300">Completion Status:</span> 100% complete
+<p class="text-lime-900  p-2 rounded-lg">
+<span class="font-medium text-lime-950">Length:</span> 2 weeks
 </p>
-<p class="text-gray-400  p-2 rounded-lg">
-<span class="font-medium text-gray-300">Year:</span> 2024
+<p class="text-lime-900  p-2 rounded-lg">
+<span class="font-medium text-lime-950">Team:</span> David,Rayyan,Meilani,May and Veronika
+</p>
+<p class="text-lime-900  p-2 rounded-lg">
+<span class="font-medium ttext-lime-950">Completion Status:</span> 55% complete
+</p>
+<p class="text-lime-900  p-2 rounded-lg">
+<span class="font-medium text-lime-950">Year:</span> 2024
 </p>
   </div>
 </section>
 <!-- overview -->
-<section id="faqs" class="lg:px-20 px-8 flex flex-col md:flex-row items-center justify-center py-20 bg-black">
+<section id="faqs" class="custom-bg lg:px-20 px-8 flex flex-col md:flex-row items-center justify-center py-20 ">
   <div class="container flex flex-col md:flex-row">
       <!-- Title on the Left -->
       <div class="md:w-1/3 mb-12 md:mb-0 md:pr-8">
-          <h2 class="text-4xl text-gray-300 text-left md:text-4xl font-medium text-white mb-2 md:mb-10 z-10 relative">
+          <h2 class="text-4xl text-lime-950 text-left md:text-4xl font-medium  mb-2 md:mb-10 z-10 relative">
             Overview
           </h2>
       </div>
@@ -173,65 +208,65 @@
           <div class="max-w-2xl mx-auto">
         <!-- Question 4 -->
         <div class="mb-4">
-            <button class="text-gray-300 w-full text-left bg-neutral-900 p-4 rounded-lg flex justify-between items-center" onclick="toggleFAQ(this)">
+            <button class="  text-lime-950 bg-blue-100  w-full text-left p-4 rounded-lg flex justify-between items-center" onclick="toggleFAQ(this)">
                 <span>What is the goals?</span>
-                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-chevron-down text-lime-950"></i>
             </button>
              <!-- Answer 4 -->
-            <div class="mt-2 hidden  text-gray-300 bg-neutral-800 p-4 rounded-lg">
-                <p class="text-gray-300 bg-neutral-800 pb-4 rounded-lg leading-relaxed">
+            <div class="mt-2 hidden  text-lime-900 bg-blue-100 p-4  rounded-lg border-2 border-gray-300">
+                <p class="text-lime-900 pb-4 rounded-lg leading-relaxed">
                   Design a visually appealing, responsive website to promote organic food. Use Figma for design, Tailwind CSS for styling, and JavaScript for interactivity. Select and prioritize content to align with the organic food theme for an engaging user experience.
                 </p>  
             </div>
         </div>
         <!-- Question 3 -->
         <div class="mb-4">
-            <button class="text-gray-300 w-full text-left bg-neutral-900 p-4 rounded-lg flex justify-between items-center" onclick="toggleFAQ(this)">
+            <button class="text-lime-950 bg-blue-100  w-full text-left  p-4 rounded-lg flex justify-between items-center" onclick="toggleFAQ(this)">
                 <span>What was my task ?</span>
-                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-chevron-down text-lime-950"></i>
             </button>
              <!-- Answer 3 -->
-            <div class="mt-2 hidden">
-                <p class="text-gray-300 bg-neutral-800 p-4 rounded-lg leading-relaxed">
+            <div class="mt-2 hidden text-lime-900 bg-blue-100 p-4  rounded-lg border-2 border-gray-300">
+                <p class="text-lime-900 p-4 rounded-lg leading-relaxed">
                   Designed a user-centric, responsive website using Figma, TailwindCSS, and JavaScript, while finding and prioritizing content suited for promoting organic food.
             </div>
         </div>
                <!-- Question 2 -->
                <div class="mb-4">
-                <button class="text-gray-300 w-full text-left bg-neutral-900 p-4 rounded-lg flex justify-between items-center" onclick="toggleFAQ(this)">
+                <button class="text-lime-950 bg-blue-100  w-full text-left p-4 rounded-lg flex justify-between items-center" onclick="toggleFAQ(this)">
                     <span>Who was the design for?</span>
-                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-chevron-down text-lime-950"></i>
                 </button>
                  <!-- Answer 2 -->
-                <div class="mt-2 hidden text-gray-300 bg-neutral-800 p-4  rounded-lg leading-relaxed ">
-                  <p class="text-gray-300 bg-neutral-800 pb-4 rounded-lg ">
+                <div class="mt-2 hidden text-lime-900 bg-blue-100 p-4  rounded-lg border-2 border-gray-300 ">
+                  <p class="text-lime-900 pb-4 rounded-lg ">
                     <span class="font-semibold">Organic Food Brands:</span> Companies promoting their organic products and brand
                   </p>
-                  <p class="text-gray-300 bg-neutral-800 pb-4 rounded-lg">
+                  <p class="text-lime-900  pb-4 rounded-lg">
                     <span class="font-semibold">Health & Wellness Bloggers:</span> Individuals sharing organic living conten
                   </p>
-                  <p class="text-gray-300 bg-neutral-800 pb-4 rounded-lg">
+                  <p class="text-lime-900   pb-4 rounded-lg">
                     <span class="font-semibold">Farmers & Markets:</span> Local growers promoting organic produce.
 
                 </div>
             </div>
               <!-- Question 5 -->
               <div class="mb-4">
-                  <button class="text-gray-300 w-full text-left bg-neutral-900 p-4 rounded-lg flex justify-between items-center" onclick="toggleFAQ(this)">
+                  <button class="text-lime-950 bg-blue-100  w-full text-left  p-4 rounded-lg flex justify-between items-center" onclick="toggleFAQ(this)">
                       <span>How did I design this feature?</span>
-                      <i class="fas fa-chevron-down"></i>
+                      <i class="fas fa-chevron-down text-lime-950"></i>
                   </button>
                    <!-- Answer 5 -->
-                  <div class="mt-2 hidden  text-gray-300 bg-neutral-800 p-4 rounded-lg">
-                      <p class="text-gray-300 bg-neutral-800 pb-4 rounded-lg leading-relaxed">
+                  <div class="mt-2 hidden  text-lime-900 bg-blue-100 p-4  rounded-lg border-2 border-gray-300">
+                      <p class="text-lime-900 pb-4 rounded-lg leading-relaxed">
                         <span class="font-semibold">Step1 Sketch:</span> Prioritized the content, identified key information for the landing page, sketched a clean, natural layout, and sent it to mentors for review.
                       </p>
-                      <p class="text-gray-300 bg-neutral-800 pb-4 rounded-lg">
+                      <p class="text-lime-900 pb-4 rounded-lg">
                         <span class="font-semibold">Step2 Prototype:</span> Developed an interactive prototype to test user interactions.
                       </p>
-                      <p class="text-gray-300 bg-neutral-800 pb-4 rounded-lg">
+                      <p class="text-lime-900 pb-4 rounded-lg">
                         <span class="font-semibold">Step3 Development:</span>Built the website with Tailwind CSS and JavaScript. Reviewed with mentor before finalizing for Quicksite Guru.
-                                          <p class="text-green-300 ">
+                                          <p class="text-blue-800 ">
                      <a href="http://anai-mcptkzkxvqn4thfwhwxy.s3-website-ap-southeast-2.amazonaws.com/index.html" target="_blank" class="pb-4 text-lg text-green-300 hover:underline">
   View website
 </p>
@@ -295,164 +330,208 @@
     </div>
 </section>
 </section>
-<!--  Project Reflection-->
-<section id="about" class="pt-12 lg:px-20 px-8 flex flex-col md:flex-row items-center justify-left lg:pb-18 pb-20 bg-black">
-    <div class="max-w-7xl mx-auto px-4 ">
-        <div class="text-left">
-<!--Topic-->
-        <h1 class="text-xl text-gray-300 text-left md:text-4xl font-regular  mb-2 md:mb-6 z-10 relative"> Project Reflection</h1>
-<!--Title--> 
-            <p class="text-lg font-semibold text-gray-400 pb-2">Skill Development:</p>
-            <p class="text-lg font-meduim text-gray-400 pb-4">Skilled in Figma for design, Tailwind CSS and JavaScript for web development, organizing and prioritizing website content based on mentor feedback.</p>
-            <p class="text-lg font-semibold text-gray-400 pb-2">Gratitude:</p>
-            <p class="text-lg font-meduim text-gray-400 pb-4">A special thanks to Quicksite Guru for providing the opportunity to explore and express my creativity throughout this project.</p>
-        </div>   
-    </div>
-</section>
-<!-- Projects Section -->
-<div class="bg-neutral-950 p-6 rounded-lg mt-8">
-  <h3 id="projects" class="text-green-300 text-xl font-medium mb-4">Projects</h3>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
-      <!-- Projects 1 -->
-         <div class="relative bg-neutral-800 p-4 rounded-lg">
+ <!-- Projects Section -->
+      <div class=" p-6 rounded-lg mt-8">
+        <h3 id="projects" class="text-lime-950 text-5xl font-medium mb-10">Projects</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
+            <!-- Projects 2.1 -->
+          <div class="relative custom-card p-4 rounded-lg">
                   <!-- Label on the left-hand side -->
-                  <span class="absolute top-2 left-2 bg-neutral-500 text-black font-medium text-xs px-2 py-1 rounded">Design System</span>
+                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">Design System & Tokens Studio</span>
             <img src="https://github.com/Pea-png/Portfolio/blob/main/Images/Frame%202%20(3).jpg?raw=true" alt="Project 1" class="w-96 h-52 rounded mb-4">
-            <h4 class="text-gray-300 font-semibold mb-2">Design System Handoff</h4>
-            <p class="text-gray-400 mb-2 text-sm">
+            <h4 class="text-lime-950 font-semibold mb-2">Design System Handoff</h4>
+            <p class="text-lime-900 mb-2 text-sm">
               This project helps developers implement Tailwind CSS designs with clarity and consistency, ensuring a smooth transition from design to code.</p>
-              <p class="text-gray-400 mb-4">
+              <p class="text-lime-900 mb-4">
+              <span class="font-semibold">Tools:</span> Figma & Tokens Studio
+            </p>
+            <a href="https://www.figma.com/design/1tqTEilgLfpBIvYrWyHruD/Design-System-By-Pea-Kochsena?node-id=17-111&t=ac9tGWSoJMb8ElCQ-1" class="text-blue-800 hover:underline">Read More</a>
+          </div>
+                <!-- Projects 2.2 -->
+          <div class="relative custom-card p-4 rounded-lg">
+                  <!-- Label on the left-hand side -->
+                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UX Pilot</span>
+            <img src="https://github.com/Pea-png/Portfolio/blob/main/Content/images/Trackle%20Financial%20Tracker-%20UX%20Pilot.jpg?raw=true" alt="Project 1" class="w-96 h-52 rounded mb-4">
+            <h4 class="text-lime-950 font-semibold mb-2">Trackle Financial Tracker</h4>
+            <p class="text-lime-900 mb-2 text-sm">
+              A practice project with UX Pilot, focused on designing a clear and consistent financial expense UI.</p>
+              <p class="text-lime-900 mb-4">
+              <span class="font-semibold">Tools:</span> Figma & UX Pilot
+            </p>
+            <a href="https://www.figma.com/design/zLUpxTVTz87THG3GswusCK/Trackle-Financial-Tracker--UX-Pilot?node-id=34-389&t=wQSnifLakLOHkLN8-1" class="text-blue-800 hover:underline">Read More</a>
+          </div>
+                <!-- Projects 1 -->
+     <div class="relative custom-card p-4 rounded-lg">
+                  <!-- Label on the left-hand side -->
+                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UI/UX</span>
+            <img src="https://github.com/Pea-png/Portfolio/blob/main/Content/images/Content%20cover.jpg?raw=true" alt="Project 1" class="w-96 h-52 rounded mb-4">
+            <h4 class="text-lime-950 font-semibold mb-2">Redesign: Content feature</h4>
+            <p class="text-lime-900 mb-2 text-sm">
+              Successfully enhanced user experiences by designing intuitive interfaces that simplify complexity and align with user goals.</p>
+              <p class="text-lime-900 mb-4">
               <span class="font-semibold">Tools:</span> Figma
             </p>
-            <a href="https://www.figma.com/design/1tqTEilgLfpBIvYrWyHruD/Design-System-By-Pea-Kochsena?node-id=17-111&t=ac9tGWSoJMb8ElCQ-1" class="text-green-300 hover:underline">Read More</a>
+            <a href="Content/content.index.html" class="text-blue-800 hover:underline">Read More</a>
           </div>
-          <!-- Projects 1 -->
-<div class="relative bg-neutral-900 p-4 rounded-lg">
-            <!-- Label on the left-hand side -->
-            <span class="absolute top-2 left-2 bg-neutral-500 text-black font-medium text-xs px-2 py-1 rounded">UI/UX</span>
-      <img src="https://github.com/Pea-png/Portfolio/blob/main/Content/images/2.4.1.2.1%20Content%20text%20(%20After%20click%20Update%20from%20HTML%20).png?raw=true" alt="Project 1" class="w-96 h-52 rounded mb-4">
-      <h4 class="text-gray-300 font-semibold mb-2">Redesign: Content feature</h4>
-      <p class="text-gray-400 mb-2 text-sm">
-        Successfully enhanced user experiences by designing intuitive interfaces that simplify complexity and align with user goals.</p>
-        <p class="text-gray-400 mb-4">
-        <span class="font-semibold">Tools:</span> Figma
-      </p>
-      <a href="https://peakochsena.site/Content/content.index.html" class="text-green-300 hover:underline">Read More</a>
-    </div>
-           <!-- Projects 2 -->
-            <div class="relative bg-neutral-900 p-4 rounded-lg">
-            <!-- Label on the left-hand side -->
-            <span class="absolute top-2 left-2 bg-neutral-500 text-black font-medium text-xs px-2 py-1 rounded">UI/UX</span>
-            <img src="https://github.com/Pea-png/Portfolio/blob/main/Images/app%20bg.jpg?raw=true" alt="Project 2" class="w-96 h-52 rounded mb-4">
-            <h4 class="text-gray-300 font-semibold mb-2">App Dashboard Design</h4>
-            <p class="text-gray-400 mb-2 text-sm">
-              Delivered a user-friendly, visually appealing dashboard that improved website data analysis.</p>
-              <p class="text-gray-400 mb-4">
-              <span class="font-semibold">Tools:</span> Figma
+                 <!-- Projects 2 -->
+                  <div class="relative custom-card p-4 rounded-lg">
+                  <!-- Label on the left-hand side -->
+                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UI/UX</span>
+                  <img src="https://github.com/Pea-png/Portfolio/blob/main/App/images/Mockup%2006%20(1).jpg?raw=true" alt="Project 2" class="w-96 h-52 rounded mb-4">
+                  <h4 class="text-lime-950 font-semibold mb-2">App Dashboard Design</h4>
+                  <p class="text-lime-900 mb-2 text-sm">
+                    Delivered a user-friendly, visually appealing dashboard that improved website data analysis.</p>
+                    <p class="text-lime-900 mb-4">
+                    <span class="font-semibold">Tools:</span> Figma
+                  </p>
+                  <a href="App/app.index.html" class="text-blue-800 hover:underline">Read More</a>
+                </div>
+            
+                       <!-- Projects 3 -->
+          <div class="relative custom-card p-4 rounded-lg">
+                  <!-- Label on the left-hand side -->
+                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">Web Development</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/1cff4e205070975.66b456892c831.jpg" alt="Project 1" class="w-96 h-52 rounded mb-4">
+            <h4 class="text-lime-950 font-semibold mb-2">Digital Markrting Agency:A Responsive Landing-Page</h4>
+            <p class="text-lime-900 mb-2 text-sm">
+              Created a dynamic, customizable website template for Quicksite Guru, tailored for digital marketing professionals seeking a modern, flexible solution.</p>
+              <p class="text-lime-900 mb-4">
+              <span class="font-semibold">Tools:</span> Figma,Tailwind CSS,and JS
             </p>
-            <a href="https://peakochsena.site/App/app.index.html" class="text-green-300 hover:underline">Read More</a>
+            <a href="Digital/index.html" class="text-blue-800 hover:underline">Read More</a>
           </div>
-      
-                 <!-- Projects 3 -->
-    <div class="relative bg-neutral-900 p-4 rounded-lg">
-            <!-- Label on the left-hand side -->
-            <span class="absolute top-2 left-2 bg-neutral-500 text-black font-medium text-xs px-2 py-1 rounded">Web Development</span>
-      <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/1cff4e205070975.66b456892c831.jpg" alt="Project 1" class="w-96 h-52 rounded mb-4">
-      <h4 class="text-gray-300 font-semibold mb-2">Digital Markrting Agency:A Responsive Landing-Page</h4>
-      <p class="text-gray-400 mb-2 text-sm">
-        Created a dynamic, customizable website template for Quicksite Guru, tailored for digital marketing professionals seeking a modern, flexible solution.</p>
-        <p class="text-gray-400 mb-4">
-        <span class="font-semibold">Tools:</span> Figma,Tailwind CSS,and JS
-      </p>
-      <a href="https://peakochsena.site/Digital/index.html" class="text-green-300 hover:underline">Read More</a>
-    </div>
-         
-                        <!-- Projects 5 -->
-  <div class="relative bg-neutral-900 p-4 rounded-lg">
-            <!-- Label on the left-hand side -->
-            <span class="absolute top-2 left-2 bg-neutral-500 text-black font-medium text-xs px-2 py-1 rounded">UI Design</span>
-      <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/03d539189570149.65aefdce25c2e.jpg" alt="Project 1" class="w-96 h-52 rounded mb-4">
-      <h4 class="text-gray-300 font-semibold mb-2">Redesign: The Pot Project website</h4>
-      <p class="text-gray-400 mb-2 text-sm">
-       Redesign UI to enhance user experience by simplifying content and implementing a new design system to meet WCAG standards.</p>
-        <p class="text-gray-400 mb-4">
-        <span class="font-semibold">Tools:</span> Figma
-      </p>
-      <a href="https://www.behance.net/gallery/189570149/Redesign-The-Pot-Project-Website-Design-UXUI" class="text-green-300 hover:underline">Read More</a>
-    </div>
-             <!-- Projects 6-->
-     <div class="relative bg-neutral-900 p-4 rounded-lg">
-            <!-- Label on the left-hand side -->
-            <span class="absolute top-2 left-2 bg-neutral-500 text-black font-medium text-xs px-2 py-1 rounded">UI Design</span>
-      <img src="https://github.com/Pea-png/Portfolio/blob/main/Images/new%20posy%20bg.jpg?raw=true" alt="Project 1" class="w-96 h-52 rounded mb-4">
-      <h4 class="text-gray-300 font-semibold mb-2">Landing Page for Posies website</h4>
-      <p class="text-gray-400 mb-2 text-sm">
-       Design a responsive landing page for a flower bouquet service, showcasing bouquets and their meanings with an elegant, user-friendly layout.</p>
-        <p class="text-gray-400 mb-4">
-        <span class="font-semibold">Tools:</span> Figma
-      </p>
-      <a href="https://www.behance.net/gallery/208816537/Landing-Page-for-Flower-Bouquet-Service" class="text-green-300 hover:underline">Read More</a>
-    </div>
-                  <!-- Projects 7 -->
-    <div class="relative bg-neutral-900 p-4 rounded-lg">
-            <!-- Label on the left-hand side -->
-            <span class="absolute top-2 left-2 bg-neutral-500 text-black font-medium text-xs px-2 py-1 rounded">UX Research</span>
-      <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/5cd3f3161262543.65546448af67f.jpg" alt="Project 1" class="w-96 h-52 rounded mb-4">
-      <h4 class="text-gray-300 font-semibold mb-2">Nice Night Application</h4>
-      <p class="text-gray-400 mb-2 text-sm">
-        This app aims to enhance people's experiences in pubs and restaurants, making them more enjoyable and safe.</p>
-        <p class="text-gray-400 mb-4">
-        <span class="font-semibold">Tools:</span> Figma
-      </p>
-      <a href="https://peakochsena.wixsite.com/portfolio/copy-of-general" class="text-green-300 hover:underline">Read More</a>
-    </div>
-                        <!-- Projects 8 --> 
-    <!-- Projects 7 -->
-     <div class="relative bg-neutral-900 p-4 rounded-lg">
-            <!-- Label on the left-hand side -->
-            <span class="absolute top-2 left-2 bg-neutral-500 text-black font-medium text-xs px-2 py-1 rounded">Graphic Design</span>
-      <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/e5a623204477227.66a9aca3903e0.jpg" alt="Project 1" class="w-96 h-52 rounded mb-4">
-      <h4 class="text-gray-300 font-semibold mb-2">Graphic Design: Pet Food Branding</h4>
-      <p class="text-gray-400 mb-2 text-sm">
-        This project showcases a series of social media posters that highlight my skills in graphic design and illustration</p>
-        <p class="text-gray-400 mb-4">
-        <span class="font-semibold">Tools:</span> Adobe illustrator
-      </p>
-      <a href="https://www.behance.net/gallery/204477227/Graphic-Design-Social-Media-Post-for-Pet-Food-Branding" class="text-green-300 hover:underline">Read More</a>
-    </div>
-                         
-    
+                 <!-- Projects 4-->
+                <div class="relative custom-card p-4 rounded-lg">
+                  <!-- Label on the left-hand side -->
+                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">Web Development</span>
+                  <img src="Images/Og.prototype.jpg" alt="Project 2" class="w-96 h-52 rounded mb-4">
+                  <h4 class="text-lime-950 font-semibold mb-2">Organic4U:A Responsive Landing-Page</h4>
+                  <p class="text-lime-900 mb-2 text-sm">                  
 
-  </div>
-  
-</div>
-</div>
-<!-- Footer -->
-<footer class="p-8 bg-black text-green-600 py-10">
-    <div class="container mx-auto text-center">
+                    Developed a single-page website for promoting organic food, demonstrating my expertise in Figma, TailwindCSS, JavaScript, and responsive design.</p>
+                    <p class="text-lime-900 mb-4">
+                    <span class="font-semibold">Tools:</span> Figma,Tailwind CSS,and JS
+                  </p>
+                  <a href="Organic4U/index.html" class="text-blue-800 hover:underline">Read More</a>
+                </div>
+                              <!-- Projects 5 -->
+        <div class="relative custom-card p-4 rounded-lg">
+                  <!-- Label on the left-hand side -->
+                  <span class="absolute top-2 left-2bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UI Design</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/03d539189570149.65aefdce25c2e.jpg" alt="Project 1" class="w-96 h-52 rounded mb-4">
+            <h4 class="text-lime-950 font-semibold mb-2">Redesign: The Pot Project website</h4>
+            <p class="text-lime-900 mb-2 text-sm">
+             Redesign UI to enhance user experience by simplifying content and implementing a new design system to meet WCAG standards.</p>
+              <p class="text-lime-900 mb-4">
+              <span class="font-semibold">Tools:</span> Figma
+            </p>
+            <a href="https://www.behance.net/gallery/189570149/Redesign-The-Pot-Project-Website-Design-UXUI" class="text-blue-800 hover:underline">Read More</a>
+          </div>
+                   <!-- Projects 6-->
+           <div class="relative custom-card p-4 rounded-lg">
+                  <!-- Label on the left-hand side -->
+                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UI Design</span>
+            <img src="https://github.com/Pea-png/Portfolio/blob/main/Images/new%20posy%20bg.jpg?raw=true" alt="Project 1" class="w-96 h-52 rounded mb-4">
+            <h4 class="text-lime-950 font-semibold mb-2">Landing Page for Posies website</h4>
+            <p class="text-lime-900 mb-2 text-sm">
+             Design a responsive landing page for a flower bouquet service, showcasing bouquets and their meanings with an elegant, user-friendly layout.</p>
+              <p class="text-lime-900 mb-4">
+              <span class="font-semibold">Tools:</span> Figma
+            </p>
+            <a href="https://www.behance.net/gallery/208816537/Landing-Page-for-Flower-Bouquet-Service" class="text-blue-800 hover:underline">Read More</a>
+          </div>
+                        <!-- Projects 7 -->
+          <div class="relative custom-card p-4 rounded-lg">
+                  <!-- Label on the left-hand side -->
+                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UX Research</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/5cd3f3161262543.65546448af67f.jpg" alt="Project 1" class="w-96 h-52 rounded mb-4">
+            <h4 class="text-lime-950 font-semibold mb-2">Nice Night Application</h4>
+            <p class="text-lime-900 mb-2 text-sm">
+              This app aims to enhance people's experiences in pubs and restaurants, making them more enjoyable and safe.</p>
+              <p class="text-lime-900 mb-4">
+              <span class="font-semibold">Tools:</span> Figma
+            </p>
+            <a href="https://peakochsena.wixsite.com/portfolio/copy-of-general" class="text-blue-800 hover:underline">Read More</a>
+          </div>
+                            <!-- Projects 7 -->
+          <div class="relative custom-card p-4 rounded-lg">
+                  <!-- Label on the left-hand side -->
+                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UX Research</span>
+            <img src="https://github.com/Pea-png/Portfolio/blob/main/App/images/Cover%20(1).jpg?raw=true" alt="Project 1" class="w-96 h-52 rounded mb-4">
+            <h4 class="text-lime-950 font-semibold mb-2">Redesigning DLT App Interface</h4>
+            <p class="text-lime-900 mb-2 text-sm">
+              This app aims to enhance people's experience in booking appointments for obtaining a driver's license.</p>
+              <p class="text-lime-900 mb-4">
+              <span class="font-semibold">Tools:</span> Figma
+            </p>
+            <a href="https://www.behance.net/gallery/220017101/Redesigning-DLT-App-Interface" class="text-blue-800 hover:underline">Read More</a>
+          </div>
+                              <!-- Projects 9 --> 
         
-  <!-- Container for centering the logo and social media icons -->
-  <div class="flex flex-col items-center">
+           <div class="relative custom-card p-4 rounded-lg">
+                  <!-- Label on the left-hand side -->
+                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">Graphic Design</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/e5a623204477227.66a9aca3903e0.jpg" alt="Project 1" class="w-96 h-52 rounded mb-4">
+            <h4 class="text-lime-950 font-semibold mb-2">Graphic Design: Pet Food Branding</h4>
+            <p class="text-lime-900 mb-2 text-sm">
+              This project showcases a series of social media posters that highlight my skills in graphic design and illustration</p>
+              <p class="text-lime-900 mb-4">
+              <span class="font-semibold">Tools:</span> Adobe illustrator
+            </p>
+            <a href="https://www.behance.net/gallery/204477227/Graphic-Design-Social-Media-Post-for-Pet-Food-Branding" class="text-blue-800 hover:underline">Read More</a>
+          </div>
+         <!-- Projects 10 --> 
+        
+         <div class="relative custom-card p-4 rounded-lg">
+          <!-- Label on the left-hand side -->
+          <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">Product Design</span>
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/source/852d41161262543.6554605e61af9.jpg" alt="Project 1" class="w-96 h-52 rounded mb-4">
+    <h4 class="text-lime-950 font-semibold mb-2">Product Design</h4>
+    <p class="text-lime-900 mb-2 text-sm">
+      This project showcases a series of Product Design that highlight my skills in industrial design design and illustration</p>
+      <p class="text-lime-900 mb-4">
+      <span class="font-semibold">Tools:</span> Adobe illustrator
+    </p>
+    <a href="https://www.behance.net/gallery/161262543/Porfolio-UIUX-Product-Designer" class="text-blue-800 hover:underline">Read More</a>
+  </div>                      
+          
   
-  
-    <!-- Social media -->
-    <div class="flex justify-center space-x-4">
-         <!-- Social media 3-->
-        <a href="https://www.linkedin.com/in/pea-kochsena/" target="_blank" rel="noopener noreferrer">
-            <svg class="w-6 h-6" fill="#6b7280" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22.23 0H1.77C.792 0 0 .793 0 1.77v20.46C0 23.207.792 24 1.77 24h20.46c.978 0 1.77-.793 1.77-1.77V1.77C24 .793 23.207 0 22.23 0zm-15.66 20.452H3.266V9.005h3.306v11.447zM4.919 7.543a1.916 1.916 0 11.001-3.832 1.916 1.916 0 01-.001 3.832zm15.337 12.909h-3.302v-5.755c0-1.373-.03-3.143-1.915-3.143-1.92 0-2.212 1.5-2.212 3.046v5.852h-3.3V9.005h3.167v1.563h.044c.442-.837 1.518-1.719 3.126-1.719 3.34 0 3.957 2.198 3.957 5.058v6.546z"/>
-            </svg>
-        </a>
+        </div>
+        
+      </div>
     </div>
-  
   </div>
   
-        <div class="mt-4 text-center text-gray-500">
-            &copy; 2024 Pea kochsena. All rights reserved.
-        </div>
-    </div>
-  </footer>
-  
+
+   
+   
+<!-- Footer -->
+<footer class="p-8 custom-bg text-lime-950 py-10">
+  <div class="container mx-auto text-center">
+      
+<!-- Container for centering the logo and social media icons -->
+<div class="flex flex-col items-center">
+
+
+  <!-- Social media -->
+  <div class="flex justify-center space-x-4">
+       <!-- Social media 3-->
+      <a href="https://www.linkedin.com/in/pea-kochsena/" target="_blank" rel="noopener noreferrer">
+          <svg class="w-6 h-6" fill="#6b7280" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.23 0H1.77C.792 0 0 .793 0 1.77v20.46C0 23.207.792 24 1.77 24h20.46c.978 0 1.77-.793 1.77-1.77V1.77C24 .793 23.207 0 22.23 0zm-15.66 20.452H3.266V9.005h3.306v11.447zM4.919 7.543a1.916 1.916 0 11.001-3.832 1.916 1.916 0 01-.001 3.832zm15.337 12.909h-3.302v-5.755c0-1.373-.03-3.143-1.915-3.143-1.92 0-2.212 1.5-2.212 3.046v5.852h-3.3V9.005h3.167v1.563h.044c.442-.837 1.518-1.719 3.126-1.719 3.34 0 3.957 2.198 3.957 5.058v6.546z"/>
+          </svg>
+      </a>
+    <a href="https://www.behance.net/pangk089" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#6b7280" width="24" height="24" viewBox="0 0 24 24"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h3.584c2.508 0 2.906-3-.312-3h-3.272v3zm3.391 3h-3.391v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/></svg>
+    </a>
+  </div>
+
+</div>
+
+      <div class="mt-4 text-center text-gray-500">
+          &copy; 2024 Pea kochsena. All rights reserved.
+      </div>
+  </div>
 
 
     <!-- JavaScript -->
