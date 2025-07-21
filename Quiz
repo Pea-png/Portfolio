@@ -1,1 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pea's Quiz Game</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary-yellow": "#FFE15D",
+            "primary-pink": "#FADADD",
+            "primary-purple": "#EBD6FD",
+            "accent-red": "#FF6B6B",
+            "correct-green": "#C3FBD8",
+            "wrong-pink": "#FADBD8",
+            "pastel-blue": "#AEC6CF",
+            "text-violet": "#2C2C54"
+          },
+          fontFamily: {
+            sans: ["Poppins", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    ::-webkit-scrollbar { display: none; }
+    html, body {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #AEC6CF 0%, #EBD6FD 50%, #FADADD 100%);
+    }
+    .animate-float { animation: float 3s ease-in-out infinite; }
+    .animate-float-delay { animation: float 3s ease-in-out infinite; animation-delay: 1.5s; }
+    .animate-correct {
+      animation: correct-flash 0.8s ease-in-out;
+    }
+    .animate-wrong {
+      animation: wrong-shake 0.6s ease-in-out;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    @keyframes correct-flash {
+      0% { background-color: #C3FBD8; transform: scale(1); }
+      50% { background-color: #90EE90; transform: scale(1.02); }
+      100% { background-color: #C3FBD8; transform: scale(1); }
+    }
+    @keyframes wrong-shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+    .timer-pulse {
+      animation: timer-pulse 1s ease-in-out infinite;
+    }
+    @keyframes timer-pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+  </style>
+</head>
+<body class="gradient-bg min-h-screen font-sans">
+
+  <!-- ✅ Welcome Screen -->
+  <section id="welcome-screen" class="flex flex-col justify-center items-center text-center min-h-screen px-6">
+    <div class="max-w-xl bg-white/70 backdrop-blur-lg p-8 rounded-3xl shadow-xl">
+      <h1 class="text-3xl md:text-3xl font-bold text-text-violet mb-4">🎉 Welcome to Pea's Quiz Game!</h1>
+      <p class="text-md md:text-sm text-gray-700 mb-6">Test your general knowledge and have fun with pastel-style questions.</p>
+      <button onclick="startGame()" class="bg-primary-yellow hover:bg-yellow-300 text-text-violet font-bold text-lg py-3 px-6 rounded-xl transition-transform hover:scale-105 shadow-lg">
+        Start Game
+      </button>
+    </div>
+  </section>
+
+  <!-- ✅ Quiz Screen (Initially hidden) -->
+  <main id="quiz-screen" style="display: none;" class="relative px-4 py-6 min-h-screen flex flex-col justify-center">
+
+    <!-- Floating Shapes -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-16 left-8 w-12 h-12 bg-primary-yellow rounded-full opacity-40 animate-float"></div>
+      <div class="absolute top-24 right-12 w-8 h-8 bg-primary-pink rounded-full opacity-50 animate-float-delay"></div>
+      <div class="absolute bottom-32 left-16 w-16 h-16 bg-primary-purple rounded-full opacity-30 animate-float"></div>
+      <div class="absolute bottom-16 right-8 w-10 h-10 bg-accent-red rounded-full opacity-40 animate-float-delay"></div>
+    </div>
+
+    <!-- Quiz Header -->
+    <div class="max-w-2xl mx-auto mb-8 z-10 relative">
+      <div class="flex justify-between items-center mb-4">
+        <div class="bg-white/80 backdrop-blur-sm rounded-full px-4 py-2">
+          <span class="text-sm font-medium text-text-violet">Question <span id="current-question">1</span> of <span id="total-questions">3</span></span>
+        </div>
+        <div class="bg-accent-red/20 backdrop-blur-sm rounded-full px-4 py-2 timer-pulse">
+          <span class="text-sm font-bold text-accent-red flex items-center">
+            <i class="fas fa-clock mr-2"></i><span id="timer">2:00</span>
+          </span>
+        </div>
+      </div>
+      <div class="w-full bg-white/40 rounded-full h-3 overflow-hidden">
+        <div id="progress-bar" class="bg-primary-yellow h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- Question -->
+    <div id="question-section" class="max-w-2xl mx-auto mb-8 z-10 relative">
+      <div class="bg-primary-purple/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl text-center">
+        <div class="inline-block bg-white/60 rounded-full px-4 py-2 mb-4">
+          <span class="text-sm font-medium text-text-violet"><i class="fas fa-globe text-primary-purple mr-2"></i><span id="category-label">Category</span></span>
+        </div>
+        <h2 id="question-text" class="text-xl md:text-2xl font-bold text-text-violet leading-relaxed">Question here...</h2>
+      </div>
+    </div>
+
+    <!-- Answer Options -->
+    <div class="max-w-2xl mx-auto z-10 relative space-y-4">
+      <button id="option-a" class="answer-option w-full bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg group transition-all duration-300 hover:scale-[1.02]">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-primary-yellow rounded-full flex items-center justify-center mr-4"><span class="text-lg font-bold text-text-violet">A</span></div>
+            <span class="text-lg font-medium text-text-violet">Answer A</span>
+          </div>
+          <i class="fas fa-chevron-right text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+        </div>
+      </button>
+      <button id="option-b" class="answer-option w-full bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg group transition-all duration-300 hover:scale-[1.02]">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-primary-pink rounded-full flex items-center justify-center mr-4"><span class="text-lg font-bold text-text-violet">B</span></div>
+            <span class="text-lg font-medium text-text-violet">Answer B</span>
+          </div>
+          <i class="fas fa-chevron-right text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+        </div>
+      </button>
+      <button id="option-c" class="answer-option w-full bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg group transition-all duration-300 hover:scale-[1.02]">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-pastel-blue rounded-full flex items-center justify-center mr-4"><span class="text-lg font-bold text-text-violet">C</span></div>
+            <span class="text-lg font-medium text-text-violet">Answer C</span>
+          </div>
+          <i class="fas fa-chevron-right text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+        </div>
+      </button>
+    </div>
+
+    <!-- Next Button -->
+    <div id="next-button-container" class="max-w-2xl mx-auto mt-8 z-10 relative opacity-0 pointer-events-none transition-all duration-500">
+      <button id="next-button" class="w-full bg-primary-yellow hover:bg-yellow-300 text-text-violet font-bold text-lg py-4 rounded-2xl shadow-lg transform transition-all hover:scale-105">
+        <span class="flex items-center justify-center">Next Question <i class="fas fa-arrow-right ml-3"></i></span>
+      </button>
+    </div>
+  </main>
+
+  <!-- Feedback Modal -->
+  <div id="feedback-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300">
+    <div class="bg-white rounded-3xl p-8 max-w-sm mx-4 text-center transform scale-95 transition-transform duration-300">
+      <div id="feedback-icon" class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center">
+        <i id="feedback-icon-element" class="text-3xl"></i>
+      </div>
+      <h3 id="feedback-title" class="text-xl font-bold text-text-violet mb-2"></h3>
+      <p id="feedback-text" class="text-gray-600 text-sm"></p>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        category: "World & Geography",
+        question: "What is the largest ocean on Earth?",
+        options: ["Atlantic Ocean", "Pacific Ocean", "Indian Ocean"],
+        correct: 1
+      },
+      {
+        category: "Science & Nature",
+        question: "What gas do plants absorb from the air?",
+        options: ["Oxygen", "Nitrogen", "Carbon dioxide"],
+        correct: 2
+      },
+      {
+        category: "History & Culture",
+        question: "Who was the first President of the United States?",
+        options: ["Thomas Jefferson", "George Washington", "Abraham Lincoln"],
+        correct: 1
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let timeLeft = 120;
+    let isAnswered = false;
+
+    function startGame() {
+      document.getElementById('welcome-screen').style.display = 'none';
+      document.getElementById('quiz-screen').style.display = 'block';
+      loadQuestion();
+    }
+
+    function loadQuestion() {
+      const q = questions[currentQuestionIndex];
+
+      document.getElementById('current-question').textContent = currentQuestionIndex + 1;
+      document.getElementById('total-questions').textContent = questions.length;
+      document.getElementById('question-text').textContent = q.question;
+      document.getElementById('category-label').textContent = q.category;
+
+      ['a', 'b', 'c'].forEach((letter, i) => {
+        const btn = document.getElementById(`option-${letter}`);
+        const label = btn.querySelector('span.text-lg.font-medium');
+        label.textContent = q.options[i];
+        btn.setAttribute('data-index', i);
+        btn.style.backgroundColor = '';
+        btn.classList.remove('animate-correct', 'animate-wrong');
+        btn.style.pointerEvents = 'auto';
+      });
+
+      isAnswered = false;
+      updateProgress();
+      document.getElementById('next-button-container').style.opacity = '0';
+      document.getElementById('next-button-container').style.pointerEvents = 'none';
+    }
+
+    function updateProgress() {
+      const percent = ((currentQuestionIndex) / questions.length) * 100;
+      document.getElementById('progress-bar').style.width = `${percent}%`;
+    }
+
+    function showFeedback(isCorrect) {
+      const modal = document.getElementById('feedback-modal');
+      const icon = document.getElementById('feedback-icon');
+      const iconElement = document.getElementById('feedback-icon-element');
+      const title = document.getElementById('feedback-title');
+      const text = document.getElementById('feedback-text');
+
+      if (isCorrect) {
+        icon.style.backgroundColor = '#C3FBD8';
+        iconElement.className = 'fas fa-check text-3xl text-green-600';
+        title.textContent = 'Correct! 🎉';
+        text.textContent = 'Well done!';
+      } else {
+        icon.style.backgroundColor = '#FADBD8';
+        iconElement.className = 'fas fa-times text-3xl text-red-500';
+        title.textContent = 'Oops! 😅';
+        text.textContent = `Correct answer: ${questions[currentQuestionIndex].options[questions[currentQuestionIndex].correct]}`;
+      }
+
+      modal.style.opacity = '1';
+      modal.style.pointerEvents = 'auto';
+      modal.querySelector('.bg-white').style.transform = 'scale(1)';
+
+      setTimeout(() => {
+        modal.style.opacity = '0';
+        modal.style.pointerEvents = 'none';
+        modal.querySelector('.bg-white').style.transform = 'scale(0.95)';
+      }, 2000);
+    }
+
+    document.querySelectorAll('.answer-option').forEach(option => {
+      option.addEventListener('click', function () {
+        if (isAnswered) return;
+
+        isAnswered = true;
+        const selectedIndex = parseInt(this.getAttribute('data-index'));
+        const isCorrect = selectedIndex === questions[currentQuestionIndex].correct;
+
+        document.querySelectorAll('.answer-option').forEach(opt => opt.style.pointerEvents = 'none');
+
+        if (isCorrect) {
+          score++;
+          this.classList.add('animate-correct');
+          this.style.backgroundColor = '#C3FBD8';
+        } else {
+          this.classList.add('animate-wrong');
+          this.style.backgroundColor = '#FADBD8';
+          const correctBtn = document.querySelector(`[data-index="${questions[currentQuestionIndex].correct}"]`);
+          correctBtn.classList.add('animate-correct');
+          correctBtn.style.backgroundColor = '#C3FBD8';
+        }
+
+        showFeedback(isCorrect);
+
+        setTimeout(() => {
+          document.getElementById('next-button-container').style.opacity = '1';
+          document.getElementById('next-button-container').style.pointerEvents = 'auto';
+        }, 1500);
+      });
+    });
+
+    document.getElementById('next-button').addEventListener('click', function () {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+        loadQuestion();
+      } else {
+        showSummary();
+      }
+    });
+
+    function showSummary() {
+      document.getElementById('quiz-screen').style.display = 'none';
+      const summary = document.createElement('section');
+      summary.id = 'summary-screen';
+      summary.className = 'text-center p-8';
+
+      summary.innerHTML = `
+        <h2 class="text-2xl font-bold text-text-violet mb-4">Quiz Complete! 🎉</h2>
+        <p class="text-lg text-text-violet mb-6">You scored ${score} out of ${questions.length}!</p>
+        <button onclick="location.reload()" class="bg-primary-yellow px-6 py-3 rounded-xl font-bold hover:scale-105 transition">Play Again</button>
+      `;
+      document.body.appendChild(summary);
+    }
+
+    setInterval(() => {
+      if (timeLeft > 0 && !isAnswered) {
+        timeLeft--;
+        const min = Math.floor(timeLeft / 60);
+        const sec = timeLeft % 60;
+        document.getElementById('timer').textContent = `${min}:${sec.toString().padStart(2, '0')}`;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
+
 
