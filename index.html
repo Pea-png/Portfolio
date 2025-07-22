@@ -89,6 +89,7 @@
     .custom-card {
     background-color: #EEEFE0;
   }
+  
   </style>
 </head>
 
@@ -160,8 +161,8 @@
     <!-- Left Section -->
 <div class="custom-bg p-6 rounded-lg mb-8 md:mb-0 w-full md:w-1/3">
   <div class="flex flex-col items-center">
-    <div class="w-24 h-24 rounded-full mb-4 overflow-hidden border-4 border-blue-200">
-      <img id="profile-pic" src="https://github.com/Pea-png/Portfolio/blob/main/Content/images/64256ffa272f0eb55fc058b84f4dd722.jpg?raw=true">
+    <div class="w-48 h-48 rounded-full mb-4 overflow-hidden border-4 border-blue-200">
+      <img class="w-full h-full object-cover" id="profile-pic" src="https://i.pinimg.com/originals/a8/09/94/a8099418b2137e113c808fff5df2dc2a.gif">
     </div>
     <h2 class="text-2xl text-lime-900 font-semibold mb-2">Pea Kochsena</h2>
     <p class="text-lime-950 mb-6">UX/UI designer/Web Developer</p>
@@ -180,7 +181,7 @@
     <!-- Right Section -->
     <div class="w-full md:w-2/3 ">
       <div class="  p-6 rounded-lg mb-8 ">
-        <h3 id="about" class="text-lime-950 text-7xl font-medium mb-6">Who is Pea?</h3>
+        <h3 id="about" class="text-lime-950 text-5xl md:text-7xl font-medium mb-6">Who is Pea?</h3>
           <!-- Call-to-Action Button -->
     <a href="https://docs.google.com/document/d/1JvPrF6ulYXAGI7Rc3NfhxZcMM-i7yqam1CszBXuNmXQ/edit?usp=sharing" target="_blank" 
     class="mb-8 inline-block px-4 py-2 bg-lime-950 text-gray-300 text-sm font-sm rounded-md hover:bg-lime-800 hover:text-gray-300 transition duration-300">
@@ -204,7 +205,7 @@
       </div>
 
   <!-- Skills -->
-<div class=" p-6 rounded-lg items-left">
+<div class=" p-6 items-left">
   <h3 id="skills" class="text-lime-950 text-5xl font-medium mb-10">Skills</h3>
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
     <!-- s1 -->
@@ -300,7 +301,7 @@
                     <p class="text-lime-900 mb-4">
                     <span class="font-semibold">Tools:</span> UX Pilot and ChatGPT
                   </p>
-                  <a href="Quiz /index.html" class="text-blue-800 hover:underline">Read More</a>
+                  <a href="C:\Projects\quiz-game\src\index.html" class="text-blue-800 hover:underline">Read More</a>
                 </div>
                 <!-- Projects 4 -->
           <div class="relative custom-card p-4 rounded-lg">
@@ -512,15 +513,15 @@
   </script>
   <script>
   const images = [
-    "https://github.com/Pea-png/Portfolio/blob/main/Content/images/64256ffa272f0eb55fc058b84f4dd722.jpg?raw=true",
-    "https://static.wixstatic.com/media/c0140a_b6d2aeb986f04dff81341c081082be7d~mv2.jpg/v1/crop/x_302,y_561,w_409,h_409/fill/w_404,h_401,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Fiztroy%20pic.jpg" // Direct usable image from Wikipedia
+    "https://i.pinimg.com/originals/a8/09/94/a8099418b2137e113c808fff5df2dc2a.gif",
+    "https://i.pinimg.com/originals/a8/09/94/a8099418b2137e113c808fff5df2dc2a.gif" // Direct usable image from Wikipedia
   ];
 
   let current = 0;
   setInterval(() => {
     current = (current + 1) % images.length;
     document.getElementById("profile-pic").src = images[current];
-  }, 5000);
+  }, 3000);
 </script>  
 <!-- Footer -->
 <footer class="p-8 custom-bg text-lime-950 py-10">
@@ -558,3 +559,4 @@
 </body>
 
 </html>
+
