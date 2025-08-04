@@ -180,9 +180,9 @@
 </div>
     <!-- Right Section -->
     <div class="w-full md:w-2/3 ">
-      <div class="  p-6 rounded-lg mb-6 ">
+      <div class="  p-6 rounded-lg mb-8 ">
      <!-- Dynamic Heading -->
-    <h3 id="typed-line" class="text-lime-950 text-3xl md:text-5xl font-medium mb-4 min-h-[4rem] leading-relaxed">
+    <h3 id="typed-line" class="text-lime-950 text-3xl md:text-5xl font-medium mb-6 min-h-[4rem] leading-relaxed">
       <span class="border-r-4 border-lime-950 pr-1 animate-pulse" id="cursor"></span>
     </h3>
 
@@ -192,6 +192,8 @@
    View Resume
  </a>
     <p class="text-lime-900 mb-4 leading-relaxed"> Creative and user-centered UX/UI Designer with a background in industrial design and a diploma in user experience design ; skilled in UI/UX Design, UX Research, and Prototyping. I use <span class="font-semibold">Figma</span>, <span class="font-semibold">Adobe Illustrator</span>, and <span class="font-semibold">Tailwind CSS</span> to create user-centered designs and responsive websites.</p>
+    <p class="text-lime-900 leading-relaxed leading-relaxed">I’m passionate about solving real user problems and turning insights into elegant, engaging solutions.For me, great design is not just about visuals; it’s about empathy, clarity, and creating moments that feel effortless and intuitive.
+
 </p>
           <!-- Tools -->
 <div class=" pt-8 rounded-lg">
@@ -533,7 +535,7 @@
     if (charIndex < lines[currentLine].length) {
       typedLine.textContent += lines[currentLine].charAt(charIndex);
       charIndex++;
-      setTimeout(typeNextLine, 90);
+      setTimeout(typeNextLine, 100);
     } else {
       if (currentLine < lines.length - 1) {
         setTimeout(() => {
@@ -600,4 +602,3 @@
 </body>
 
 </html>
-
