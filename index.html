@@ -180,15 +180,19 @@
 </div>
     <!-- Right Section -->
     <div class="w-full md:w-2/3 ">
-      <div class="  p-6 rounded-lg mb-8 ">
-        <h3 id="about" class="text-lime-950 text-5xl md:text-7xl font-medium mb-6">Who is Pea?</h3>
+      <div class="  p-6 rounded-lg mb-6 ">
+     <!-- Dynamic Heading -->
+    <h3 id="typed-line" class="text-lime-950 text-3xl md:text-5xl font-medium mb-4 min-h-[4rem] leading-relaxed">
+      <span class="border-r-4 border-lime-950 pr-1 animate-pulse" id="cursor"></span>
+    </h3>
+
           <!-- Call-to-Action Button -->
     <a href="https://docs.google.com/document/d/1JvPrF6ulYXAGI7Rc3NfhxZcMM-i7yqam1CszBXuNmXQ/edit?usp=sharing" target="_blank" 
     class="mb-8 inline-block px-4 py-2 bg-lime-950 text-gray-300 text-sm font-sm rounded-md hover:bg-lime-800 hover:text-gray-300 transition duration-300">
    View Resume
  </a>
-    <p class="text-lime-900 mb-4 leading-relaxed"> Creative and user-centered UX/UI Designer with a background in Industrial design and a diploma in user experience design ; skilled in UI/UX Design, UX Research, and Prototyping. I use <span class="font-semibold">Figma</span>, <span class="font-semibold">Adobe Illustrator</span>, and <span class="font-semibold">Tailwind CSS</span> to create user-centered designs and responsive websites.</p>
-    <p class="text-lime-900 leading-relaxed leading-relaxed">I’m passionate about solving real user problems and turning insights into elegant, engaging solutions.For me, great design is not just about visuals; it’s about empathy, clarity, and creating moments that feel effortless and intuitive.
+    <p class="text-lime-900 mb-4 leading-relaxed"> Creative and user-centered UX/UI Designer with a background in industrial design and a diploma in user experience design ; skilled in UI/UX Design, UX Research, and Prototyping. I use <span class="font-semibold">Figma</span>, <span class="font-semibold">Adobe Illustrator</span>, and <span class="font-semibold">Tailwind CSS</span> to create user-centered designs and responsive websites.</p>
+</p>
           <!-- Tools -->
 <div class=" pt-8 rounded-lg">
   <h3 id="tools" class="text-lime-950 text-xl font-medium mb-6">Design Tools</h3>
@@ -511,6 +515,43 @@
           }, 2000); // Adjust the time for the resume to load
       });
   </script>
+  <!-- Typing & Replacing Script -->
+<script>
+  const lines = [
+    "Who is Pea?",
+    "I’m a UX/UI designer who can bring ideas to life ⋆✴︎˚｡⋆ ",
+    "I’m a problem solver who creates smart, intuitive designs (╭ರ_•́) ",
+    "My work blends beauty and meaning into seamless experiences ── .✦"
+  ];
+
+  const typedLine = document.getElementById("typed-line");
+  const cursor = document.getElementById("cursor");
+  let currentLine = 0;
+  let charIndex = 0;
+
+  function typeNextLine() {
+    if (charIndex < lines[currentLine].length) {
+      typedLine.textContent += lines[currentLine].charAt(charIndex);
+      charIndex++;
+      setTimeout(typeNextLine, 90);
+    } else {
+      if (currentLine < lines.length - 1) {
+        setTimeout(() => {
+          currentLine++;
+          charIndex = 0;
+          typedLine.textContent = ""; // Clear before next line
+          typeNextLine();
+        }, 2000); // Pause before next line replaces
+      } else {
+        cursor.style.display = "none"; // Hide cursor after all lines
+      }
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    typeNextLine();
+  });
+</script>
   <script>
   const images = [
     "https://i.pinimg.com/originals/a8/09/94/a8099418b2137e113c808fff5df2dc2a.gif",
