@@ -215,7 +215,7 @@
     <img src="https://miro.medium.com/v2/resize:fit:1200/1*UBZYjKJigowCJOK4SaHicw.jpeg" alt="Figma" class="w-16 h-16 object-contain rounded-lg border-2 border-blue-200 bg-gray-950">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2WFKWdkjA65xB52BO-OG1jlXNCRSjnz5t4NIN1s7HbNfhjMoM2PvyUeDUTjYLcjy9wqE&usqp=CAU" alt="VS Code" class="w-16 h-16 object-contain rounded-lg border-2 border-blue-200 bg-gray-950">
     <img src="https://images.prismic.io/sacra/Z0Sul68jQArT1Sb7_cursorlogo.png?auto=format,compress" alt="Cursor AI" class="w-16 h-16 object-contain rounded-lg border-2 border-blue-200 bg-gray-950">
-    <img src="https://pbs.twimg.com/profile_images/1724453654663491584/-1qH-tgI_400x400.jpg" alt="UX Pilot" class="w-16 h-16 object-contain rounded-lg border-2 border-blue-200 bg-gray-950"> 
+    <img src="https://pbs.twimg.com/profile_images/1724453654663491584/-1qH-tgI_400x400.jpg" alt="UX Pilot" class="w-16 h-16 object-contain rounded-lg border-2 border-blue-200 bg-blue-700"> 
     <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSwbZLTm10SNpNFSS532MmnptoQnR0xiF4yAZeZBwO9ASEcs2ZQVC01g-o0g3z_0cqCHLUkNZBLGvDbTnwycoPEU0WYaGAlGp08c0GQ6g" alt="Adobe" class="w-16 h-16 object-contain rounded-lg border-2 border-blue-200 bg-gray-950">
     <img src="https://i.pinimg.com/originals/11/75/80/117580671d043f0dd1f2c0f7ee21aa22.gif" alt="Adobe" class="w-16 h-16 object-contain rounded-lg ">
 
@@ -280,12 +280,20 @@
   </div>
 </div>
 
-      <!-- Projects Section -->
-      <div class=" p-6 rounded-lg mt-8">
-        <h3 id="projects" class="text-lime-950 text-5xl font-medium mb-10">Projects</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
-            <!-- Projects 1 -->
-          <div class="relative custom-card p-4 rounded-lg">
+     <!-- Project Filter -->
+      <div class=" p-6 items-left"> 
+  <h3 id="skills" class="text-lime-950 text-5xl font-medium mb-10">Projects</h3>
+<div class="flex gap-4 mb-8">
+  <button onclick="filterProjects('all')" class="filter-btn bg-blue-200 text-lime-950 px-4 py-2 rounded-full font-medium text-sm">All</button>
+  <button onclick="filterProjects('uxui')" class="filter-btn bg-blue-100 text-lime-950 px-4 py-2 rounded-full font-medium text-sm">UX/UI</button>
+  <button onclick="filterProjects('frontend')" class="filter-btn bg-blue-100 text-lime-950 px-4 py-2 rounded-full font-medium text-sm">Frontend</button>
+  <button onclick="filterProjects('graphic')" class="filter-btn bg-blue-100 text-lime-950 px-4 py-2 rounded-full font-medium text-sm">Graphic Design</button>
+</div>
+
+<!-- Projects Section -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
+    <!-- Projects 1 -->    
+  <div class="relative custom-card p-4 rounded-lg project-card" data-category="uxui">
                   <!-- Label on the left-hand side -->
                   <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">Design System & Tokens Studio</span>
             <img src="https://github.com/Pea-png/Portfolio/blob/main/Images/Frame%202%20(3).jpg?raw=true" alt="Project 1" class="w-96 h-52 rounded mb-4">
@@ -297,9 +305,19 @@
             </p>
             <a href="https://www.figma.com/design/1tqTEilgLfpBIvYrWyHruD/Design-System-By-Pea-Kochsena?node-id=17-111&t=ac9tGWSoJMb8ElCQ-1" class="text-blue-800 hover:underline">Read More</a>
           </div>
-          
-                     <!-- Projects 2 -->
-     <div class="relative custom-card p-4 rounded-lg">
+  
+  <!--Project2-->
+  <div class="relative custom-card p-4 rounded-lg project-card" data-category="uxui">
+    <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UI/UX</span>
+    <img src="https://github.com/Pea-png/Portfolio/blob/main/Content/images/Content%20cover.jpg?raw=true" alt="Project" class="w-96 h-52 rounded mb-4">
+    <h4 class="text-lime-950 font-semibold mb-2">Redesign: Content Feature</h4>
+    <p class="text-lime-900 mb-2 text-sm">Enhanced UX by designing intuitive interfaces that simplify complexity.</p>
+    <p class="text-lime-900 mb-4"><span class="font-semibold">Tools:</span> Figma</p>
+    <a href="Content/content.index.html" class="text-blue-800 hover:underline">Read More</a>
+  </div>
+                       <!-- Projects 3 -->
+     
+  <div class="relative custom-card p-4 rounded-lg project-card" data-category="uxui">
                   <!-- Label on the left-hand side -->
                   <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UI/UX</span>
             <img src="https://github.com/Pea-png/Portfolio/blob/main/Content/images/Content%20cover.jpg?raw=true" alt="Project 1" class="w-96 h-52 rounded mb-4">
@@ -311,48 +329,9 @@
             </p>
             <a href="Content/content.index.html" class="text-blue-800 hover:underline">Read More</a>
           </div>
-           <!-- Projects 2.1 -->
-          <div class="relative custom-card p-4 rounded-lg">
-                  <!-- Label on the left-hand side -->
-                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">React,TypeScript & Gemini AI</span>
-            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/1cff4e205070975.66b456892c831.jpg" alt="Project 1" class="w-96 h-52 rounded mb-4">
-            <h4 class="text-lime-950 font-semibold mb-2">Digital Markrting Agency (in progress) </h4>
-            <p class="text-lime-900 mb-2 text-sm">
-             A practice project using React and Tailwind CSS to streamline the design-to-dev workflow.</p>
-              <p class="text-lime-900 mb-4">
-              <span class="font-semibold">Tech Stack:</span> React·Tailwind CSS·Gemini AI·GitHub
-            </p>
-            <a href="https://github.com/Pea-png/Digital-Markrting-Agency" class="text-blue-800 hover:underline">Read More</a>
-          </div>
-                <!-- Projects 3 -->
-                  <div class="relative custom-card p-4 rounded-lg">
-                  <!-- Label on the left-hand side -->
-                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UX Pilot + AI Generation</span>
-                  <img src="https://github.com/Pea-png/Portfolio/blob/main/Content/images/uxpilot-design-1753101425760.png?raw=true" alt="Project 2" class="w-96 h-52 rounded mb-4">
-                  <h4 class="text-lime-950 font-semibold mb-2">Quiz Quest</h4>
-                  <p class="text-lime-900 mb-2 text-sm">
-                   Designed in UXPilot and developed with AI-generated code, this project showcases a responsive quiz game. It explores efficient design-to-development workflows using modern tools and automation.</p>
-                    <p class="text-lime-900 mb-4">
-                    <span class="font-semibold">Tools:</span> UX Pilot and ChatGPT
-                  </p>
-                  <a href="https://peakochsena.site/Quiz%20/index.html" class="text-blue-800 hover:underline">Read More</a>
-                </div>
-                <!-- Projects 4 -->
-          <div class="relative custom-card p-4 rounded-lg">
-                  <!-- Label on the left-hand side -->
-                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UX Pilot</span>
-            <img src="https://github.com/Pea-png/Portfolio/blob/main/Content/images/Trackle%20Financial%20Tracker-%20UX%20Pilot.jpg?raw=true" alt="Project 1" class="w-96 h-52 rounded mb-4">
-            <h4 class="text-lime-950 font-semibold mb-2">Trackle Financial Tracker</h4>
-            <p class="text-lime-900 mb-2 text-sm">
-              A practice project with UX Pilot, focused on designing a clear and consistent financial expense UI.</p>
-              <p class="text-lime-900 mb-4">
-              <span class="font-semibold">Tools:</span> Figma & UX Pilot
-            </p>
-            <a href="https://www.figma.com/design/zLUpxTVTz87THG3GswusCK/Trackle-Financial-Tracker--UX-Pilot?node-id=34-389&t=wQSnifLakLOHkLN8-1" class="text-blue-800 hover:underline">Read More</a>
-          </div>
-     
-                 <!-- Projects 5 -->
-                  <div class="relative custom-card p-4 rounded-lg">
+                 <!-- Projects 4 -->
+                 
+  <div class="relative custom-card p-4 rounded-lg project-card" data-category="uxui">
                   <!-- Label on the left-hand side -->
                   <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UI/UX</span>
                   <img src="https://github.com/Pea-png/Portfolio/blob/main/App/images/Mockup%2006%20(1).jpg?raw=true" alt="Project 2" class="w-96 h-52 rounded mb-4">
@@ -364,22 +343,93 @@
                   </p>
                   <a href="App/app.index.html" class="text-blue-800 hover:underline">Read More</a>
                 </div>
-            
-                       <!-- Projects 6 -->
-          <div class="relative custom-card p-4 rounded-lg">
+                                         <!-- Projects 5 -->
+       
+  <div class="relative custom-card p-4 rounded-lg project-card" data-category="uxui">
                   <!-- Label on the left-hand side -->
-                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">Web Development</span>
-            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/1cff4e205070975.66b456892c831.jpg" alt="Project 1" class="w-96 h-52 rounded mb-4">
-            <h4 class="text-lime-950 font-semibold mb-2">Digital Markrting Agency:A Responsive Landing-Page</h4>
+                  <span class="bg-blue-200 absolute top-2 left-2bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UI Design</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/03d539189570149.65aefdce25c2e.jpg" alt="Project 1" class="w-96 h-52 rounded mb-4">
+            <h4 class="text-lime-950 font-semibold mb-2">Redesign: The Pot Project website</h4>
             <p class="text-lime-900 mb-2 text-sm">
-              Created a dynamic, customizable website template for Quicksite Guru, tailored for digital marketing professionals seeking a modern, flexible solution.</p>
+             Redesign UI to enhance user experience by simplifying content and implementing a new design system to meet WCAG standards.</p>
               <p class="text-lime-900 mb-4">
-              <span class="font-semibold">Tools:</span> Figma,Tailwind CSS,and JS
+              <span class="font-semibold">Tools:</span> Figma
             </p>
-            <a href="Digital/index.html" class="text-blue-800 hover:underline">Read More</a>
+            <a href="https://www.behance.net/gallery/189570149/Redesign-The-Pot-Project-Website-Design-UXUI" class="text-blue-800 hover:underline">Read More</a>
           </div>
-                 <!-- Projects 7-->
-                <div class="relative custom-card p-4 rounded-lg">
+                            <!-- Projects 6-->
+  <div class="relative custom-card p-4 rounded-lg project-card" data-category="uxui">
+                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UI Design</span>
+            <img src="https://github.com/Pea-png/Portfolio/blob/main/Images/new%20posy%20bg.jpg?raw=true" alt="Project 1" class="w-96 h-52 rounded mb-4">
+            <h4 class="text-lime-950 font-semibold mb-2">Landing Page for Posies website</h4>
+            <p class="text-lime-900 mb-2 text-sm">
+             Design a responsive landing page for a flower bouquet service, showcasing bouquets and their meanings with an elegant, user-friendly layout.</p>
+              <p class="text-lime-900 mb-4">
+              <span class="font-semibold">Tools:</span> Figma
+            </p>
+            <a href="https://www.behance.net/gallery/208816537/Landing-Page-for-Flower-Bouquet-Service" class="text-blue-800 hover:underline">Read More</a>
+          </div>
+                                <!-- Projects 7 -->
+  <div class="relative custom-card p-4 rounded-lg project-card" data-category="uxui">
+                  <!-- Label on the left-hand side -->
+                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UX Research</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/5cd3f3161262543.65546448af67f.jpg" alt="Project 1" class="w-96 h-52 rounded mb-4">
+            <h4 class="text-lime-950 font-semibold mb-2">Nice Night Application</h4>
+            <p class="text-lime-900 mb-2 text-sm">
+              This app aims to enhance people's experiences in pubs and restaurants, making them more enjoyable and safe.</p>
+              <p class="text-lime-900 mb-4">
+              <span class="font-semibold">Tools:</span> Figma
+            </p>
+            <a href="https://peakochsena.wixsite.com/portfolio/copy-of-general" class="text-blue-800 hover:underline">Read More</a>
+          </div>
+
+  <!--  Frontend Project -->
+                        <!--  Project10.1 -->
+  <div class="relative custom-card p-4 rounded-lg project-card" data-category="frontend">
+    <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">Frontend</span>
+    <img src="https://i.pinimg.com/originals/fc/21/16/fc2116fb21de12a62d4b36c31bbb1e6f.gif" alt="Project" class="w-96 h-52 rounded mb-4">
+    <h4 class="text-lime-950 font-semibold mb-2">Frontend Challenges</h4>
+    <p class="text-lime-900 mb-2 text-sm">This project is part of a Front-End Development Skills Test, built as a solution to a frontend challenge from Code in the Wind #1.</p>
+    <p class="text-lime-900 mb-4"><span class="font-semibold">Tech Stack:</span> Html,CSS and Tailwind CSS</p>
+    <a href="https://pea-png.github.io/Front-End-Test/" class="text-blue-800 hover:underline">Read More</a>
+  </div>
+              <!-- Projects 8-->
+  <div class="relative custom-card p-4 rounded-lg project-card" data-category="frontend">                  <!-- Label on the left-hand side -->
+                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">React,TypeScript & Gemini AI</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/1cff4e205070975.66b456892c831.jpg" alt="Project 1" class="w-96 h-52 rounded mb-4">
+            <h4 class="text-lime-950 font-semibold mb-2">Digital Markrting Agency (in progress) </h4>
+            <p class="text-lime-900 mb-2 text-sm">
+             A practice project using React and Tailwind CSS to streamline the design-to-dev workflow.</p>
+              <p class="text-lime-900 mb-4">
+              <span class="font-semibold">Tech Stack:</span> React·Tailwind CSS·Gemini AI·GitHub
+            </p>
+            <a href="https://github.com/Pea-png/Digital-Markrting-Agency" class="text-blue-800 hover:underline">Read More</a>
+          </div>
+           <!-- Projects 9 -->
+<div class="relative custom-card p-4 rounded-lg project-card" data-category="frontend">                       <!-- Label on the left-hand side -->
+                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UX Pilot + AI Generation</span>
+                  <img src="https://github.com/Pea-png/Portfolio/blob/main/Content/images/uxpilot-design-1753101425760.png?raw=true" alt="Project 2" class="w-96 h-52 rounded mb-4">
+                  <h4 class="text-lime-950 font-semibold mb-2">Quiz Quest</h4>
+                  <p class="text-lime-900 mb-2 text-sm">
+                   Designed in UXPilot and developed with AI-generated code, this project showcases a responsive quiz game. It explores efficient design-to-development workflows using modern tools and automation.</p>
+                    <p class="text-lime-900 mb-4">
+                    <span class="font-semibold">Tools:</span> UX Pilot and ChatGPT
+                  </p>
+                  <a href="https://peakochsena.site/Quiz%20/index.html" class="text-blue-800 hover:underline">Read More</a>
+                </div>
+
+        
+      <!--  Project10 -->
+  <div class="relative custom-card p-4 rounded-lg project-card" data-category="frontend">
+    <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">Web Development</span>
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/1cff4e205070975.66b456892c831.jpg" alt="Project" class="w-96 h-52 rounded mb-4">
+    <h4 class="text-lime-950 font-semibold mb-2">Digital Marketing Agency</h4>
+    <p class="text-lime-900 mb-2 text-sm">A practice project using React and Tailwind CSS to streamline workflow.</p>
+    <p class="text-lime-900 mb-4"><span class="font-semibold">Tech Stack:</span> React · Tailwind CSS</p>
+    <a href="https://github.com/Pea-png/Digital-Markrting-Agency" class="text-blue-800 hover:underline">Read More</a>
+  </div>
+        <!-- Projects 11-->
+  <div class="relative custom-card p-4 rounded-lg project-card" data-category="frontend">
                   <!-- Label on the left-hand side -->
                   <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">Web Development</span>
                   <img src="https://github.com/Pea-png/Portfolio/blob/main/Images/Og.prototype.jpg?raw=true" alt="Project 2" class="w-96 h-52 rounded mb-4">
@@ -392,75 +442,19 @@
                   </p>
                   <a href="Organic4U/index.html" class="text-blue-800 hover:underline">Read More</a>
                 </div>
-                              <!-- Projects 8 -->
-        <div class="relative custom-card p-4 rounded-lg">
-                  <!-- Label on the left-hand side -->
-                  <span class="bg-blue-200 absolute top-2 left-2bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UI Design</span>
-            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/03d539189570149.65aefdce25c2e.jpg" alt="Project 1" class="w-96 h-52 rounded mb-4">
-            <h4 class="text-lime-950 font-semibold mb-2">Redesign: The Pot Project website</h4>
-            <p class="text-lime-900 mb-2 text-sm">
-             Redesign UI to enhance user experience by simplifying content and implementing a new design system to meet WCAG standards.</p>
-              <p class="text-lime-900 mb-4">
-              <span class="font-semibold">Tools:</span> Figma
-            </p>
-            <a href="https://www.behance.net/gallery/189570149/Redesign-The-Pot-Project-Website-Design-UXUI" class="text-blue-800 hover:underline">Read More</a>
-          </div>
-                   <!-- Projects 9-->
-           <div class="relative custom-card p-4 rounded-lg">
-                  <!-- Label on the left-hand side -->
-                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UI Design</span>
-            <img src="https://github.com/Pea-png/Portfolio/blob/main/Images/new%20posy%20bg.jpg?raw=true" alt="Project 1" class="w-96 h-52 rounded mb-4">
-            <h4 class="text-lime-950 font-semibold mb-2">Landing Page for Posies website</h4>
-            <p class="text-lime-900 mb-2 text-sm">
-             Design a responsive landing page for a flower bouquet service, showcasing bouquets and their meanings with an elegant, user-friendly layout.</p>
-              <p class="text-lime-900 mb-4">
-              <span class="font-semibold">Tools:</span> Figma
-            </p>
-            <a href="https://www.behance.net/gallery/208816537/Landing-Page-for-Flower-Bouquet-Service" class="text-blue-800 hover:underline">Read More</a>
-          </div>
-                        <!-- Projects 10 -->
-          <div class="relative custom-card p-4 rounded-lg">
-                  <!-- Label on the left-hand side -->
-                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UX Research</span>
-            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/5cd3f3161262543.65546448af67f.jpg" alt="Project 1" class="w-96 h-52 rounded mb-4">
-            <h4 class="text-lime-950 font-semibold mb-2">Nice Night Application</h4>
-            <p class="text-lime-900 mb-2 text-sm">
-              This app aims to enhance people's experiences in pubs and restaurants, making them more enjoyable and safe.</p>
-              <p class="text-lime-900 mb-4">
-              <span class="font-semibold">Tools:</span> Figma
-            </p>
-            <a href="https://peakochsena.wixsite.com/portfolio/copy-of-general" class="text-blue-800 hover:underline">Read More</a>
-          </div>
-                            <!-- Projects 11 -->
-          <div class="relative custom-card p-4 rounded-lg">
-                  <!-- Label on the left-hand side -->
-                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">UX Research</span>
-            <img src="https://github.com/Pea-png/Portfolio/blob/main/App/images/Cover%20(1).jpg?raw=true" alt="Project 1" class="w-96 h-52 rounded mb-4">
-            <h4 class="text-lime-950 font-semibold mb-2">Redesigning DLT App Interface</h4>
-            <p class="text-lime-900 mb-2 text-sm">
-              This app aims to enhance people's experience in booking appointments for obtaining a driver's license.</p>
-              <p class="text-lime-900 mb-4">
-              <span class="font-semibold">Tools:</span> Figma
-            </p>
-            <a href="https://www.behance.net/gallery/220017101/Redesigning-DLT-App-Interface" class="text-blue-800 hover:underline">Read More</a>
-          </div>
-                              <!-- Projects 12 --> 
+
+  <!-- Project12-->
+  <div class="relative custom-card p-4 rounded-lg project-card" data-category="graphic">
+    <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">Graphic Design</span>
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/e5a623204477227.66a9aca3903e0.jpg" alt="Project" class="w-96 h-52 rounded mb-4">
+    <h4 class="text-lime-950 font-semibold mb-2">Pet Food Branding</h4>
+    <p class="text-lime-900 mb-2 text-sm">A series of social media posters showcasing illustration & branding skills.</p>
+    <p class="text-lime-900 mb-4"><span class="font-semibold">Tools:</span> Adobe Illustrator</p>
+    <a href="https://www.behance.net/gallery/204477227/Graphic-Design-Social-Media-Post-for-Pet-Food-Branding" class="text-blue-800 hover:underline">Read More</a>
+  </div>
+       <!-- Projects 13 --> 
         
-           <div class="relative custom-card p-4 rounded-lg">
-                  <!-- Label on the left-hand side -->
-                  <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">Graphic Design</span>
-            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/e5a623204477227.66a9aca3903e0.jpg" alt="Project 1" class="w-96 h-52 rounded mb-4">
-            <h4 class="text-lime-950 font-semibold mb-2">Graphic Design: Pet Food Branding</h4>
-            <p class="text-lime-900 mb-2 text-sm">
-              This project showcases a series of social media posters that highlight my skills in graphic design and illustration</p>
-              <p class="text-lime-900 mb-4">
-              <span class="font-semibold">Tools:</span> Adobe illustrator
-            </p>
-            <a href="https://www.behance.net/gallery/204477227/Graphic-Design-Social-Media-Post-for-Pet-Food-Branding" class="text-blue-800 hover:underline">Read More</a>
-          </div>
-         <!-- Projects 13 --> 
-        
-         <div class="relative custom-card p-4 rounded-lg">
+  <div class="relative custom-card p-4 rounded-lg project-card" data-category="graphic">
           <!-- Label on the left-hand side -->
           <span class="absolute top-2 left-2 bg-blue-200 text-black font-medium text-xs px-2 py-1 rounded">Product Design</span>
     <img src="https://mir-s3-cdn-cf.behance.net/project_modules/source/852d41161262543.6554605e61af9.jpg" alt="Project 1" class="w-96 h-52 rounded mb-4">
@@ -473,10 +467,31 @@
     <a href="https://www.behance.net/gallery/161262543/Porfolio-UIUX-Product-Designer" class="text-blue-800 hover:underline">Read More</a>
   </div>                      
           
-  
-        </div>
-        
-      </div>
+
+</div>
+</div>
+
+<!-- JavaScript Filter -->
+<script>
+  function filterProjects(category) {
+    const projects = document.querySelectorAll('.project-card');
+    projects.forEach(card => {
+      if (category === 'all' || card.dataset.category === category) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // Button active state
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.classList.remove('bg-blue-300');
+      btn.classList.add('bg-blue-100');
+    });
+    event.target.classList.add('bg-blue-300');
+  }
+</script>
+
     </div>
   </div>
   
@@ -630,5 +645,6 @@
 </body>
 
 </html>
+
 
 
